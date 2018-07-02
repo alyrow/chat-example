@@ -7,7 +7,18 @@
   "private": true,
   "license": "BSD",
   "dependencies": {
-    "express": "4.13.4"
+    "express": "4.13.4",
+"socket.io": "~1.2.1", 
+
+"ent": "~0.1.0",
+
+"querystring": "*",
+
+"url": "*",
+
+"http": "*"
+
+
   },
   "scripts": {
     "start": "node index.js"
