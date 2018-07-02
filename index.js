@@ -3,13 +3,14 @@ var io = require('socket.io')(process.env.PORT);
 console.log('listening on *:'+process.env.PORT);
 
 io.on('connection', function(socket){
- console.log("User Online ("+socket.request.connection.remoteAddress+")\n");
+ console.log("A new user is Online \n");
 
 
 
 socket.on('add user', (username) => { 
  // we store the username in the socket session for this client 
 socket.username = username; 
+console.log("The user was call " + username + "\n");
 socket.broadcast.emit('user joined', { 
 username: socket.username
 }); 
@@ -21,7 +22,7 @@ username: socket.username
  });
  
  socket.on('disconnect', function(socket){
-  console.log("User OffLine ("+socket.request.connection.remoteAddress+")\n");
+  console.log("User OffLine ("+socket.username+")\n");
  });
 });
 
